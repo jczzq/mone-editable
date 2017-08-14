@@ -1,0 +1,168 @@
+[layout="row"] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    word-break: break-all;
+}
+
+[layout="column"] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+[flex-wrap="wrap"] {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex(@a, @b) {
+    justify-content: @a;
+    -webkit-justify-content: @a;
+    align-items: @b;
+    -webkit-align-items: @b;
+}
+
+[layout-align="space-between start"] {
+    .flex(space-between, flex-start);
+}
+
+[layout-align="space-between center"] {
+    .flex(space-between, center);
+}
+
+[layout-align="space-between end"] {
+    .flex(space-between, flex-end)
+}
+
+[layout-align="space-between stretch"] {
+    .flex(space-between, stretch)
+}
+
+[layout-align="space-around center"] {
+    .flex(space-around, center)
+}
+
+[layout-align="space-around stretch"] {
+    .flex(space-around, stretch)
+}
+
+[layout-align="center center"] {
+    .flex(center, center)
+}
+
+[layout-align="center start"] {
+    .flex(center, flex-start)
+}
+
+[layout-align="center end"] {
+    .flex(center, flex-end)
+}
+
+[layout-align="end center"] {
+    .flex(flex-end, center)
+}
+
+[layout-align="start center"] {
+    .flex(flex-start, center)
+}
+
+[layout-align="start start"] {
+    .flex(flex-start, flex-start)
+}
+
+[layout-align="start end"] {
+    .flex(flex-start, flex-end)
+}
+
+[layout-align="center space-around"] {
+    .flex(center, space-around)
+}
+
+[layout-align="space-around start"] {
+    .flex(space-around, flex-start)
+}
+
+[layout-align="end start"] {
+    .flex(flex-end, start)
+}
+
+.flex-percentge(@a) {
+    -webkit-flex: 1 1 @a;
+    flex: 1 1 @a;
+    max-width: @a;
+    max-height: 100%;
+}
+
+[flex] {
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+[flex="5"] {
+    .flex-percentge(5%);
+}
+
+[flex="10"] {
+    .flex-percentge(10%);
+}
+
+[flex="15"] {
+    .flex-percentge(15%);
+}
+
+[flex="20"] {
+    .flex-percentge(20%);
+}
+
+[flex="25"] {
+    .flex-percentge(25%);
+}
+
+[flex="30"] {
+    .flex-percentge(30%);
+}
+
+[flex="33"] {
+    .flex-percentge(33%);
+}
+
+[flex="35"] {
+    .flex-percentge(35%);
+}
+
+[flex="40"] {
+    .flex-percentge(40%);
+}
+
+[flex="45"] {
+    .flex-percentge(45%);
+}
+
+[flex="50"] {
+    .flex-percentge(50%);
+}
+
+[flex="60"] {
+    .flex-percentge(60%);
+}
+
+[flex="70"] {
+    .flex-percentge(70%);
+}
+
+[flex="80"] {
+    .flex-percentge(80%);
+}
+
+[flex="90"] {
+    .flex-percentge(90%);
+}
+
+[flex="100"] {
+    .flex-percentge(100%);
+}

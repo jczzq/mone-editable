@@ -1,28 +1,26 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
-  </div>
+    <div id="app">
+        <h3 class="text-center">vue-editable</h3>
+        <!-- field组件 -->
+        <k-field type="text"></k-field>
+        <k-field type="number"></k-field>
+        <k-field type="select"></k-field>
+        <k-field type="query"></k-field>
+    </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-
-export default {
-  name: 'app',
-  components: {
-    Hello
-  }
-}
+    import KEditable from '@/components/KEditable'
+    import KField from '@/components/KField'
+    export default {
+        name: 'app',
+        components: {
+            KEditable,
+            KField
+        }
+    }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

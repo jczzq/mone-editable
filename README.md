@@ -2,6 +2,9 @@
 
 > 基于vue的可编辑表格插件
 
+## 结构
+1.
+
 ## Build Setup
 
 ``` bash
