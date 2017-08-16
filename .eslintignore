@@ -2,3 +2,4 @@ build/*.js
 config/*.js
 src/assets/fonts/*
 src/knife.js
+src/es6-polyfill.js

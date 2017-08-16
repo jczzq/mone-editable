@@ -31,7 +31,7 @@ export default {
             return { value: value };
         }
         var CurrencyWarning = function (warning, value) {
-            return { 
+            return {
                 warning: warning,
                 value: value,
                 attempt: newString 

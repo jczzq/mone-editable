@@ -1,17 +1,9 @@
+import '@/es6-polyfill';
 import Vue from 'vue';
 import App from './App';
-
-import KIcon from '@/components/KIcon';
-Vue.component('k-icon', KIcon);
-
+import KEditable from './KEditable';
 Vue.config.productionTip = false;
-Vue.config.keyCodes = {
-    up: [38],
-    down: [40],
-    left: [37],
-    right: [39]
-};
-import '@/assets/fonts/iconfont.js';
+Vue.use(KEditable);
 
 /* eslint-disable no-new */
 new Vue({

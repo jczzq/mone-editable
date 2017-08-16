@@ -8,7 +8,7 @@
         </div>
         <ul class="select-box" v-show="show">
             <li v-for="(item, index) in optionsSlots" 
-            @click="$emit('change', item && item.split('|')[1])" :key="index" >{{ item && item.split('|')[0] }}</li>
+            @click="()=>{$emit('change', item && item.split('|')[1]);show=false;}" :key="index" >{{ item && item.split('|')[0] }}</li>
         </ul>
     </div>
 </template>
@@ -37,48 +37,26 @@
 <style lang="less">
     @import '~@/assets/less/_theme.less';
     .field-select {
+        width: 100%;
         position: relative;
         .select-box {
             background-color: white;
-            width: 100%;
-            position: absolute;
+            width: 230px;
+            position: fixed;
             list-style: none;
             margin: 0;
             border: 1px solid @ExtraLightGray;
             li {
                 cursor: pointer;
                 border-bottom: 1px solid @ExtraLightGray;
-                padding: 5px 10px;
+                height: 35px;
+                line-height: 35px;
+                padding: 0 8px;
             }
             li:hover {
                 background-color: @DarkWhite;
             }
             z-index: 66;
-        }
-    }
-    .field-query {
-        input {
-            padding-right: 2px;
-            border-radius: 2px 0 0 2px;
-            border-right: none;
-            width: 100%;
-        }
-        .label-icon {
-            width: 35px;
-            height: 35px;
-            border: 1px solid @ExtraLightSilver;
-            border-left: 1px solid @LightGray;
-            border-radius: 0 2px 2px 0;
-            color: @ExtraLightBlack;
-            background-color: white;
-            cursor: pointer;
-            .icon {
-                width: 20px;
-                height: 20px;
-            }
-        }
-        .label-icon:hover {
-            background-color: @DarkWhite;
         }
     }
 </style>
