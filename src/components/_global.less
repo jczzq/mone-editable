@@ -3,7 +3,19 @@
 @import '~@/assets/less/_flex.less';
 @import '~@/assets/less/_mixin.less';
 // 工程默认样式
-html {
-    font-family: "Microsoft YaHei","PingFangSC-Regular","Hiragino Sans GB","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+html,body,input,textarea,button,p,div,span,table {
+    font-family: "Microsoft YaHei","PingFangSC-Regular","Hiragino Sans GB","Helvetica Neue",Helvetica;
     box-sizing: border-box;
+}
+.field-box {
+    box-sizing: border-box;
+    input {
+        height: 35px;
+        width: 100%;
+        padding: 7px 8px;
+        outline: none;
+        font-size: 14px;
+        border-radius: 3px;
+        border: 1px solid @ExtraLightSilver;
+    }
 }

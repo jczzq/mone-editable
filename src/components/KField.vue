@@ -1,75 +1,65 @@
 <template>
     <div class="knife-field">
-        <div class="field-box field-text" v-if="type === 'text'">
-            <input type="text" />
-
-        </div>
-
-        <div class="field-box field-number" v-if="type === 'number'">
-            <input type="text" />
-        </div>
-
-        <div class="field-box field-select"  v-if="type === 'select'">
-            <input type="text" />
-            <ul class="select-box">
-                <li></li>
-            </ul>
-        </div>
-
-        <div class="field-box field-query"  v-if="type === 'query'">
-            <input type="text" />
-        </div>
+        <component :is="type" :value="value" @change="changeVal" :len="len" :slots="listSlots" ></component>
     </div>
 </template>
 
 <script>
+    import KCheckBox from '@/components/KCheckBox';
+    import KNumber from '@/components/KNumber';
+    import KSelect from '@/components/KSelect';
+    import KQuery from '@/components/KQuery';
+    import KText from '@/components/KText';
     export default {
-        name: 'knife-field',
+        name: 'k-field',
         props: {
             type: {
-                type: String,
+                required: true,
+                default: 'span'
+            },
+            value: {
                 required: true
             },
-            value: {}
+            len: {
+                default: 0
+            },
+            listSlots: {
+                default: ''
+            }
+        },
+        components: {
+            'KCheckBox': KCheckBox,
+            'KNumber': KNumber,
+            'KSelect': KSelect,
+            'KQuery': KQuery,
+            'KText': KText
         },
         data() {
             return {
+                a: false,
+                b: 0,
+                c: false
+            };
+        },
+        methods: {
+            changeVal(newVal) {
+                this.$emit('update:value', newVal);
             }
         }
-    }
+    };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
+    @import '~@/assets/less/_theme.less';
     @import './_global.less';
+
     .knife-field {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
         display: inline-block;
         box-sizing: border-box;
-        .field-box {
-            box-sizing: border-box;
-            input {
-                padding: 7px 8px;
-                outline: none;
-                border: 1px solid @ExtraLightSilver;
-                font-size: 14px;
-            }
-            input:focus {
-                box-shadow: 0 0 1px 1px fade(@ExtraLightSilver, 50%);
-            }
-        }
-        .field-text {
-
-        }
-        .field-number {
-
-        }
-        .field-select {
-            .select-box {
-                list-style: none;
-                margin: 0;
-            }
-        }
-        .field-query {
-
-        }
+        z-index: 6;
     }
 </style>
