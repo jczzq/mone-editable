@@ -1,7 +1,8 @@
 <template>
     <div class="field-box field-query">
         <div layout="row" layout-align="space-between center">
-            <input type="text" @focus="show=true" @blur="hidePanel" :value="value" @input="$emit('change', $event.target.value)"/>
+            <input type="text" @focus="openPanel($event.target.value)" @blur="hidePanel" 
+            :placeholder="value" @input="search($event.target.value)"/>
             <span class="label-icon" layout="row" layout-align="center center">
                 <k-icon xlink="#icon-search"></k-icon>
             </span>
@@ -20,7 +21,8 @@
         data() {
             return {
                 show: false,
-                searchList: [
+                searchList: [],
+                dataList: [
                     {
                         id: 4,
                         name: 'jczzq4',
@@ -49,12 +51,23 @@
             };
         },
         methods: {
+            openPanel(val) {
+                this.show = true;
+            },
             hidePanel: knife.debounce(function() {
                 this.show = false;
             }, 300),
             choose(item) {
                 this.$emit('choose', item);
-            }
+            },
+            search: knife.debounce(function(val) {
+                if (val == '') {
+                    this.show = false;
+                    this.searchList.splice(0);
+                    return;
+                }
+                this.searchList = this.dataList.filter(x => { return x.name.includes(val) || x.No.toString().includes(val); });
+            }, 300)
         }
     };
 </script>
@@ -63,7 +76,6 @@
     @import '~@/assets/less/_theme.less';
     .field-query {
         width: 100%;
-        position: relative;
         .select-box {
             background-color: white;
             width: 230px;
@@ -71,6 +83,8 @@
             list-style: none;
             margin: 0;
             border: 1px solid @ExtraLightGray;
+            box-shadow: 0 10px 15px 1px #eee;
+            z-index: 67;
             li {
                 cursor: pointer;
                 border-bottom: 1px solid @ExtraLightGray;
@@ -81,7 +95,6 @@
             li:hover {
                 background-color: @DarkWhite;
             }
-            z-index: 66;
         }
     }
 </style>

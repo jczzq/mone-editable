@@ -32,15 +32,14 @@ export default {
         border: 1px solid @ExtraLightSilver;
         border-radius: 3px;
         &.checked {
-            border:1px solid @Primary;
-            background-color: @Primary;
+            border:1px solid @TiffanyBlue;
+            background-color: @TiffanyBlue;
             color: white;
         }
         .icon {
             color: white;
-            vertical-align: sub;
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
         }
     }
 </style>

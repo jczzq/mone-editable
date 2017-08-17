@@ -117,21 +117,10 @@
         font-weight: 100;
         font-size: 12px;
     }
-    .triangle-top {
-        position: absolute;
-        display: inline-block;
-        width: 0;
-        margin-left: -10px;
-        margin-top: -10px;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid #ddd;
-        left: 50%;
-    }
     .knife-editable {
         font-family: "Microsoft YaHei","PingFangSC-Regular","Hiragino Sans GB","Helvetica Neue",Helvetica;
         overflow-x: auto;
+        overflow-y: hidden;
         .table {
             margin: 20px 0;
             border-spacing: 0;

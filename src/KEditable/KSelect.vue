@@ -6,10 +6,13 @@
                 <k-icon xlink="#icon-arrow-down"></k-icon>
             </span>
         </div>
-        <ul class="select-box" v-show="show">
-            <li v-for="(item, index) in optionsSlots" 
-            @click="()=>{$emit('change', item && item.split('|')[1]);show=false;}" :key="index" >{{ item && item.split('|')[0] }}</li>
-        </ul>
+        
+        <div class="select-box" v-show="show">
+            <ul>
+                <li v-for="(item, index) in optionsSlots" 
+                @click="()=>{$emit('change', item && item.split('|')[1]);show=false;}" :key="index" >{{ item && item.split('|')[0] }}</li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -38,25 +41,35 @@
     @import '~@/assets/less/_theme.less';
     .field-select {
         width: 100%;
-        position: relative;
+        display: block;
         .select-box {
             background-color: white;
-            width: 230px;
-            position: fixed;
+            position: absolute;
+            
             list-style: none;
             margin: 0;
             border: 1px solid @ExtraLightGray;
+            box-shadow: 0 10px 15px 1px #eee;
+            z-index: 1000;
+            max-height: 210px;
+            width: 160px;
+            overflow: hidden;
+            ul {
+                min-width: 180px;
+                max-height: 210px;
+                overflow-y: auto;
+            }
             li {
                 cursor: pointer;
                 border-bottom: 1px solid @ExtraLightGray;
                 height: 35px;
                 line-height: 35px;
+                box-sizing: border-box;
                 padding: 0 8px;
             }
             li:hover {
                 background-color: @DarkWhite;
             }
-            z-index: 66;
         }
     }
 </style>
