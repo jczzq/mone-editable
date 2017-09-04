@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <h3 class="text-center">vue-editable</h3>
-        <!-- field组件 -->
+        <!-- 可编辑表格 -->
         <div>
             <k-editable
             :config="config"
@@ -9,6 +9,16 @@
             @add-row="addNewRow"
             @del-row="delRow"></k-editable>
         </div>
+
+        <!--不知道是什么布局-->
+        <div class="table-block" layout="row" layout-align="start stretch">
+            <div flex v-for="(col, colIndex) in cols" :key="colIndex" layout="column" layout-align="space-between stretch">
+                <div flex class="cell" v-for="(cell, row) in cols.filter((x,i) => {return i <= colIndex;}).reduce((y, s) => { return y*s}, 1)" :key="row">
+                    {{row+1}}
+                </div>
+            </div>
+        </div>
+        
     </div>
 </template>
 
@@ -17,6 +27,7 @@
         name: 'app',
         data() {
             return {
+                cols: [4, 2, 3, 2, 2],
                 rowModel: {
                     id: null,
                     name: null,
@@ -93,6 +104,17 @@
     };
 </script>
 
-<style>
-
+<style lang="less">
+    @import './assets/less/_flex.less';
+    .table-block {
+        border: 1px solid blue;
+    }
+    .table-block>div{
+        border: 1px solid red;
+        box-sizing: border-box;
+        .cell {
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+    }
 </style>
