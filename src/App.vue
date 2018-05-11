@@ -10,15 +10,14 @@
             @del-row="delRow"></k-editable>
         </div>
 
-        <!--不知道是什么布局-->
+        <!-- 不知道是什么布局 -->
         <div class="table-block" layout="row" layout-align="start stretch">
             <div flex v-for="(col, colIndex) in cols" :key="colIndex" layout="column" layout-align="space-between stretch">
-                <div flex class="cell" v-for="(cell, row) in cols.filter((x,i) => {return i <= colIndex;}).reduce((y, s) => { return y*s}, 1)" :key="row">
+                <div flex class="cell" v-for="(cell, row) in cols.filter((x,i) => {return i <= colIndex;}).reduce((y, s) => { return y * s}, 1)" :key="row">
                     {{row+1}}
                 </div>
             </div>
         </div>
-        
     </div>
 </template>
 
@@ -27,7 +26,7 @@
         name: 'app',
         data() {
             return {
-                cols: [4, 2, 3, 2, 2],
+                cols: [2, 2, 2, 4, 1],
                 rowModel: {
                     id: null,
                     name: null,
