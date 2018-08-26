@@ -82,7 +82,7 @@
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0",
     "less": "^2.7.2",
-		"less-loader": "^4.0.5"
+    "less-loader": "^4.0.5"
   },
   "engines": {
     "node": ">= 4.0.0",
