@@ -1,8 +1,6 @@
-import '@/es6-polyfill';
 import Vue from 'vue';
 import App from './App';
-import KEditable from './KEditable';
-Vue.config.productionTip = false;
+import KEditable from 'vue-editable';
 Vue.use(KEditable);
 
 /* eslint-disable no-new */

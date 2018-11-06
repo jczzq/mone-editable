@@ -5,7 +5,7 @@
                 <tr>
                     <th class="w50">行号</th>
                     <th class="w150">操作</th>
-                    <th v-for="(field, index) in fields" :key="field.id">
+                    <th v-for="(field) in fields" :key="field.id">
                         {{field.label}}
                     </th>
                 </tr>

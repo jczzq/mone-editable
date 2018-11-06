@@ -104,7 +104,6 @@
 </script>
 
 <style lang="less">
-    @import './assets/less/_flex.less';
     .table-block {
         border: 1px solid blue;
     }

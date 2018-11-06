@@ -1,4 +1,4 @@
-import KEditable from './KEditable';
+import KEditable from './components/KEditable';
 import '@/assets/fonts/iconfont.js';
 KEditable.install = function(Vue) {
     Vue.config.keyCodes = {
