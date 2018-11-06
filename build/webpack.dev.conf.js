@@ -1,3 +1,4 @@
+var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
@@ -6,14 +7,24 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
-// add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 module.exports = merge(baseWebpackConfig, {
+  entry: {
+    app: ['./build/dev-client', './example/index.js']
+  },
+  output: {
+    path: resolve('dist'),
+    filename: '[name].js'
+  },
+  resolve: {
+    alias: {
+      '@': resolve('example')
+    }
+  },
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
   // cheap-module-eval-source-map is faster for development
   devtool: '#cheap-module-eval-source-map',
