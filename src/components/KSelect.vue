@@ -1,16 +1,15 @@
 <template>
-    <div class="field-box field-select">
+    <div class="field-select">
         <div class="field-query" layout="row" layout-align="space-between center">
-            <input type="text" readonly :value="currVal"/>
+            <input type="text" :value="currVal" readonly>
             <span class="label-icon" layout="row" @click="show = !show" layout-align="center center">
                 <k-icon xlink="#icon-arrow-down"></k-icon>
             </span>
-        </div>
-        
-        <div class="select-box" v-show="show">
-            <ul>
-                <li v-for="(item, index) in optionsSlots" 
-                @click="()=>{$emit('change', item && item.split('|')[1]);show=false;}" :key="index" >{{ item && item.split('|')[0] }}</li>
+            <ul class="field-select-box" v-show="show" :style="{ zIndex: $knife.getZIndex() }">
+                <li class="field-option" v-for="(item, index) in optionsSlots" 
+                @click="()=>{$emit('change', item && item.split('|')[1]);show=false;}"
+                :key="index" >{{ item && item.split('|')[0] }}
+                </li>
             </ul>
         </div>
     </div>
@@ -40,35 +39,41 @@
 <style lang="less">
     @import '~@/assets/less/_theme.less';
     .field-select {
+        padding: 0;
         width: 100%;
         display: block;
-        .select-box {
-            background-color: white;
+        height: 100%;
+        .field-query {
+          height: 100%;
+          position: relative;
+          input {
+            height: 100%;
+            padding: 0 8px;
+          }
+        }
+        .field-select-box {
             position: absolute;
-            
+            left: 0;
+            top: @cell-height;
+            background-color: white;
             list-style: none;
             margin: 0;
+            padding: 0;
             border: 1px solid @ExtraLightGray;
             box-shadow: 0 10px 15px 1px #eee;
-            z-index: 1000;
-            max-height: 210px;
-            width: 160px;
-            overflow: hidden;
-            ul {
-                min-width: 180px;
-                max-height: 210px;
-                overflow-y: auto;
-            }
-            li {
+            max-height: 200px;
+            overflow-y: auto;
+            width: 100%;
+            .field-option {
                 cursor: pointer;
                 border-bottom: 1px solid @ExtraLightGray;
-                height: 35px;
-                line-height: 35px;
+                height: @cell-height;
+                line-height: @cell-height;
                 box-sizing: border-box;
                 padding: 0 8px;
-            }
-            li:hover {
-                background-color: @DarkWhite;
+                &:hover {
+                    background-color: @DarkWhite;
+                }
             }
         }
     }

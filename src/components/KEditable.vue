@@ -105,6 +105,7 @@
 
 <style lang="less">
     @import '~@/assets/less/_theme.less';
+    @import './_global.less';
     .btn {
         padding: 8px;
         color: @TiffanyBlue;
@@ -113,47 +114,42 @@
         font-weight: 100;
         font-size: 12px;
     }
-    .knife-editable {
-        font-family: "Microsoft YaHei","PingFangSC-Regular","Hiragino Sans GB","Helvetica Neue",Helvetica;
-        overflow-x: auto;
-        overflow-y: hidden;
-        .table {
-            margin: 20px 0;
-            border-spacing: 0;
-            border-collapse: collapse;
-            min-width: 100%;
-            font-size: 14px;
-            border-right: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            thead {
-                tr {
-                    background-color: @DarkWhite;
-                }
+    .table {
+        margin: 20px 0;
+        border-spacing: 0;
+        border-collapse: collapse;
+        min-width: 100%;
+        font-size: 14px;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        thead {
+            tr {
+                background-color: @DarkWhite;
             }
         }
-        .table>tbody>tr>td, 
-        .table>tbody>tr>th, 
-        .table>tfoot>tr>td, 
-        .table>tfoot>tr>th, 
-        .table>thead>tr>td, 
-        .table>thead>tr>th {
-            height: 35px;
-            box-sizing: border-box;
-            padding: 0;
-            border-top: 1px solid #ddd;
-            vertical-align: middle;
-            border-left: 1px solid #ddd;
-            white-space: nowrap;
-        }
-        .table>thead>tr>td, 
-        .table>thead>tr>th {
-            padding: 0 8px;
-        }
-        .w50 {
-            width: 50px;
-        }
-        .w150 {
-            width: 150px;
-        }
+    }
+    .table>tbody>tr>td, 
+    .table>tbody>tr>th, 
+    .table>tfoot>tr>td, 
+    .table>tfoot>tr>th, 
+    .table>thead>tr>td, 
+    .table>thead>tr>th {
+        height: @cell-height;
+        box-sizing: border-box;
+        padding: 0;
+        border-top: 1px solid #ddd;
+        vertical-align: middle;
+        border-left: 1px solid #ddd;
+        white-space: nowrap;
+    }
+    .table>thead>tr>td, 
+    .table>thead>tr>th {
+        padding: 0 8px;
+    }
+    .w50 {
+        width: 50px;
+    }
+    .w150 {
+        width: 150px;
     }
 </style>

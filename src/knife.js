@@ -1,4 +1,8 @@
 export default {
+  zIndex: 2000,
+  getZIndex() {
+    return this.zIndex++;
+  },
     // 浅拷贝
 	extendCopy(p) {
         let c = {};

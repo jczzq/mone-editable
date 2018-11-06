@@ -60,9 +60,9 @@
 
 <style lang="less">
     @import '~@/assets/less/_theme.less';
-    @import './_global.less';
 
     .knife-field {
+        height: 100%;
         width: 100%;
     }
     .field-box {

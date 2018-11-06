@@ -4,9 +4,11 @@ import KEditable from './components/KEditable';
 import '@/assets/fonts/iconfont.js';
 
 import KIcon from './components/KIcon';
+import knife from './knife';
+Vue.prototype.$knife = knife;
 Vue.component('k-icon', KIcon);
 
-KEditable.install = function(Vue) {
+KEditable.install = function(Vue, option) {
     Vue.config.keyCodes = {
         up: [38],
         down: [40],
@@ -14,5 +16,6 @@ KEditable.install = function(Vue) {
         right: [39]
     };
     Vue.component(KEditable.name, KEditable);
+    knife.zIndex = option.zIndex;
 };
 export default KEditable;
