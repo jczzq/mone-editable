@@ -39,9 +39,6 @@
 </template>
 
 <script>
-    import KIcon from './KIcon';
-    import Vue from 'vue';
-    Vue.component('k-icon', KIcon);
     import KField from './KField';
     export default {
         name: 'k-editable',
@@ -108,7 +105,6 @@
 
 <style lang="less">
     @import '~@/assets/less/_theme.less';
-    @import './_global.less';
     .btn {
         padding: 8px;
         color: @TiffanyBlue;

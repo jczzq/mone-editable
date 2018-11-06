@@ -1,7 +1,5 @@
 var path = require('path')
-var utils = require('./utils')
 var webpack = require('webpack')
-var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -21,7 +19,7 @@ module.exports = merge(baseWebpackConfig, {
   },
   resolve: {
     alias: {
-      '@': resolve('example')
+      'example': resolve('example')
     }
   },
   module: {
@@ -30,7 +28,9 @@ module.exports = merge(baseWebpackConfig, {
   devtool: '#cheap-module-eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': {
+        NODE_ENV: '"development"'
+      }
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),
