@@ -17,3 +17,61 @@ textarea {
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+ul {
+  padding: 0;
+}
+
+.knife-icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: 1em;
+  height: 1em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.15em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+           normalize.css 中也包含这行 */
+  overflow: hidden;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+/* --------- 1px 线条--------- */
+// 竖线
+.v-line {
+  display: inline-block;
+  width: 1px;
+  /*no*/
+  height: 100%;
+  background-color: #E4E4E4;
+  border: none;
+  overflow: hidden;
+}
+// 横线
+.h-line {
+  display: block;
+  height: 1px;
+  /*no*/
+  background-color: #E4E4E4;
+  border: none;
+  overflow: hidden;
+}

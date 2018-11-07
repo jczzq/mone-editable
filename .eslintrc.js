@@ -17,7 +17,7 @@ module.exports = {
   ],
   // add your custom rules here
   'rules': {
-    "indent": ["error", 4, { "SwitchCase": 1 }],     // 缩进风格
+    "indent": ["error", 2, { "SwitchCase": 1 }],     // 缩进风格
     'arrow-parens': 0,    // 箭头函数用小括号括起来
     'generator-star-spacing': 0,	// 生成器函数*的前后空格
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0, 	// 禁止使用debugger
