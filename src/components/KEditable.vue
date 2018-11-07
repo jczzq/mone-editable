@@ -1,6 +1,5 @@
 <template>
-  <div id="knife-editable-1"
-    class="knife-editable">
+  <div class="knife-editable">
     <table class="table"
       colspan="0">
       <thead>
@@ -29,6 +28,7 @@
             :key="cell.id">
             <k-field :row-index="rowIndex"
               :cell-index="cellIndex"
+              :table="table[cell.name]"
               :type="cell.type"
               :value.sync="row[cell.name]"
               :len="0"
@@ -78,6 +78,9 @@ export default {
     list() {
       return this.config.list || {};
     },
+    table() {
+      return this.config.table || {};
+    },
     query() {
       return this.config.query || {};
     }
@@ -115,50 +118,7 @@ export default {
 <style lang="less">
 @import '~@/assets/less/_theme.less';
 @import './_global.less';
-.btn {
-  padding: 8px;
-  color: @TiffanyBlue;
-  cursor: pointer;
-  text-decoration: underline;
-  font-weight: 100;
-  font-size: 12px;
-}
-.table {
-  margin: 20px 0;
-  border-spacing: 0;
-  border-collapse: collapse;
-  min-width: 100%;
-  font-size: 14px;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  thead {
-    tr {
-      background-color: @DarkWhite;
-    }
-  }
-}
-.table > tbody > tr > td,
-.table > tbody > tr > th,
-.table > tfoot > tr > td,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > thead > tr > th {
-  height: @cell-height;
-  box-sizing: border-box;
-  padding: 0;
-  border-top: 1px solid #ddd;
-  vertical-align: middle;
-  border-left: 1px solid #ddd;
-  white-space: nowrap;
-}
-.table > thead > tr > td,
-.table > thead > tr > th {
-  padding: 0 8px;
-}
-.w50 {
-  width: 50px;
-}
-.w150 {
-  width: 150px;
+.knife-editable {
+
 }
 </style>

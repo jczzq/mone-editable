@@ -2,7 +2,8 @@
   <div class="knife-field">
     <component :is="type"
       :value="value"
-      :fields="fields"
+      :fields="table.fields"
+      :data-list="table.dataList"
       @change="changeVal"
       @choose="chooseVal"
       :len="len"
@@ -37,6 +38,12 @@ export default {
     },
     listSlots: {
       default: ''
+    },
+    table: {
+      default() {
+        return {
+        };
+      }
     }
   },
   components: {
@@ -48,15 +55,6 @@ export default {
   },
   data() {
     return {
-      fields: [
-        { name: 'id', label: 'ID', type: 'string' },
-        { name: 'name', label: '姓名', type: 'string' },
-        { name: 'age', label: '年龄', type: 'number' },
-        { name: 'gender', label: '性别', type: 'number' },
-        { name: 'grade', label: '年级', type: 'number' },
-        { name: 'hasPass', label: '是否通过', type: 'boolean' },
-        { name: 'No', label: '学号', type: 'number' }
-      ]
     };
   },
   methods: {
@@ -88,21 +86,14 @@ export default {
     font-size: 14px;
   }
 }
-.field-query {
-  .label-icon {
-    width: 30px;
-    height: 25px;
-    margin-right: 5px;
-    color: @ExtraLightBlack;
-    background-color: white;
-    cursor: pointer;
-    .icon {
-      width: 20px;
-      height: 20px;
-    }
-  }
-  .label-icon:hover {
-    background-color: @DarkWhite;
-  }
+.label-icon {
+  width: @cell-height;
+  height: 100%;
+  color: @ExtraLightBlack;
+  background-color: white;
+  cursor: pointer;
+}
+.label-icon:hover {
+  background-color: @DarkWhite;
 }
 </style>

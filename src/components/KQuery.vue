@@ -1,7 +1,9 @@
 <template>
   <div class="field-query">
-    <div class="field-query-block" layout="row" layout-align="space-between stretch">
-      <input type="text" @focus="openPanel($event.target.value)" @blur="hidePanel"
+    <div class="field-query-block"
+      layout="row"
+      layout-align="space-between stretch">
+      <input ref="contentInput" type="text" flex @focus="openPanel($event.target.value)"
             :placeholder="value" @input="search($event.target.value)"/>
       <span class="label-icon"
         @click.stop="show = true"
@@ -10,15 +12,28 @@
         <k-icon xlink="#icon-search"></k-icon>
       </span>
     </div>
-    <table class="select-box"
+    <div class="select-box"
+      :style="{ zIndex: $knife.getZIndex() }"
+      @mouseenter="$refs.contentInput.onblur = null"
+      @mouseleave="$refs.contentInput.onblur = hidePanel"
       v-show="show">
-      <tr v-for="(item, index) in searchList"
-        @click="choose(item)"
-        :key="index">{{ item.name }}
-        <td v-for="(cell, i) in fields"
-          :key="i"></td>
-      </tr>
-    </table>
+      <table class="select-box-table table">
+        <thead>
+          <tr>
+            <td v-for="(cell, i) in fields"
+              :key="i">{{ cell.label }}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in dataList"
+            @click="choose(item)"
+            :key="index">
+            <td v-for="(cell, i) in fields"
+              :key="i">{{ item[cell.name] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -27,59 +42,43 @@ import knife from '@/knife';
 export default {
   name: 'k-query',
   props: {
-    value: {
-    },
+    value: {},
     fields: {
       type: Array,
       default() {
         return [];
       }
+    },
+    dataList: {
+      type: Array,
+      default() {
+        return [];
+      }
+    },
+    showAllInEmpty: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       show: false,
-      searchList: [],
-      dataList: [
-        {
-          id: 4,
-          name: 'jczzq4',
-          age: 24,
-          gender: 1,
-          grade: 5,
-          No: 78
-        },
-        {
-          id: 2,
-          name: 'Evan You',
-          age: 38,
-          gender: 0,
-          grade: '2',
-          No: 64
-        },
-        {
-          id: 3,
-          name: '坂田银时',
-          age: 58,
-          gender: 1,
-          grade: 5,
-          No: 60
-        }
-      ]
+      searchList: []
     };
   },
   methods: {
     openPanel(val) {
       this.show = true;
+      this.$refs.contentInput.onblur = this.hidePanel;
     },
-    hidePanel: knife.debounce(function() {
+    hidePanel(event) {
       this.show = false;
-    }, 300),
+    },
     choose(item) {
       this.$emit('choose', item);
     },
     search: knife.debounce(function(val) {
-      if (val == '') {
+      if (!this.showAllInEmpty && val == '') {
         this.show = false;
         this.searchList.splice(0);
         return;
@@ -100,29 +99,32 @@ export default {
   position: relative;
   .field-query-block {
     height: 100%;
-    input {                         
+    input {
       height: 100%;
       padding: 0 8px;
     }
   }
   .select-box {
-    background-color: white;
-    width: 100%;
     position: absolute;
+    left: 0;
+    background-color: white;
+    width: auto;
+    overflow-x: auto;
     list-style: none;
     margin: 0;
     border: 1px solid @ExtraLightGray;
     box-shadow: 0 10px 15px 1px #eee;
-    z-index: 67;
-    li {
-      cursor: pointer;
-      border-bottom: 1px solid @ExtraLightGray;
-      height: 35px;
-      line-height: 35px;
-      padding: 0 8px;
-    }
-    li:hover {
-      background-color: @DarkWhite;
+    .select-box-table {
+      tr {
+        cursor: pointer;
+        td,
+        th {
+          padding: 0 8px;
+        }
+        &:hover {
+          background-color: @DarkWhite;
+        }
+      }
     }
   }
 }

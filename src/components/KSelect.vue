@@ -1,23 +1,26 @@
 <template>
-  <div class="field-select">
-      <div class="field-select-block" layout="row" layout-align="space-between stretch">
-        <input type="text" :value="currVal" readonly>
-        <span class="label-icon" flex
-          layout="row"
-          @click="show = !show"
-          layout-align="center center">
-          <k-icon xlink="#icon-arrow-down"></k-icon>
-        </span>
-      </div>
-      <ul class="field-select-box"
-        v-show="show"
-        :style="{ zIndex: $knife.getZIndex() }">
-        <li class="field-option"
-          v-for="(item, index) in optionsSlots"
-          @click="()=>{$emit('change', item && item.split('|')[1]);show=false;}"
-          :key="index">{{ item && item.split('|')[0] }}
-        </li>
-      </ul>
+  <div class="field-select" :class="{ show }">
+    <div class="field-select-block"
+      layout="row"
+      layout-align="space-between stretch">
+      <input ref="selectInput" type="text" :value="activeItem.name" flex readonly @focus="handleFocus" @blur="show = false" @keyup="handleKeyup">
+      <span class="label-icon"
+        layout="row"
+        @click="show = !show"
+        layout-align="center center">
+        <k-icon xlink="#icon-arrow-down"></k-icon>
+      </span>
+    </div>
+    <ul class="field-select-box"
+      v-show="show"
+      :style="{ zIndex: $knife.getZIndex() }">
+      <li class="field-option"
+        :class="{ active: (activeItem && activeItem.value === item.value) }"
+        v-for="(item, index) in optionsSlots"
+        @click="choose(item)"
+        :key="item.value || index">{{ item.name }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -27,18 +30,99 @@ export default {
   props: ['value', 'slots'],
   data() {
     return {
-      show: false
+      show: false,
+      activeItem: {}
     };
   },
+  watch: {
+    show(val) {
+      if (val) {
+        this.$refs.selectInput.focus();
+      }
+    }
+  },
   computed: {
-    currVal() {
-      let val = this.optionsSlots.find(x => {
-        return x.split('|')[1] && x.split('|')[1] == this.value;
-      });
-      return val && val.split('|')[0];
-    },
     optionsSlots() {
-      return (this.slots && this.slots.split(',')) || [];
+      let arr = (this.slots && this.slots.split(',')) || [];
+      return arr.map(x => {
+        let [name, value] = x.split('|');
+        return {
+          name,
+          value
+        };
+      });
+    }
+  },
+  methods: {
+    choose(item) {
+      this.$nextTick(() => {
+        this.$refs.selectInput.blur();
+      });
+      if (this.activeItem.value === item.value) {
+        return;
+      }
+      // console.log('item', item);
+      this.activeItem = item;
+      this.$emit('change', item && item.value);
+    },
+    handleFocus(event) {
+      if (!this.show) {
+        this.show = true;
+      }
+    },
+    handleKeyup(event) {
+      // altKey
+      // shiftKey
+      // console.log('event', event);
+      switch (event.keyCode) {
+        // tab
+        case 9:
+          break;
+        // enter
+        case 13:
+          this.show = true;
+          break;
+        // Alt
+        case 18:
+          break;
+        // Esc
+        case 27:
+          break;
+        // up
+        case 38:
+          this.lastActive();
+          break;
+        // down
+        case 40:
+          this.nextActive();
+          break;
+        default:
+          break;
+      }
+    },
+    lastActive() {
+      if (!(this.optionsSlots && this.optionsSlots.length)) return;
+      if (!(this.activeItem && this.activeItem.value)) {
+        this.activeItem = this.optionsSlots[0] || {};
+        return;
+      }
+      let i = this.optionsSlots.findIndex(
+        x => x.value === this.activeItem.value
+      );
+      i <= 0 ? (i = 0) : i--;
+      this.activeItem = this.optionsSlots[i];
+    },
+    nextActive() {
+      if (!(this.optionsSlots && this.optionsSlots.length)) return;
+      if (!(this.activeItem && this.activeItem.value)) {
+        this.activeItem = this.optionsSlots[0] || {};
+        return;
+      }
+      let i = this.optionsSlots.findIndex(
+        x => x.value === this.activeItem.value
+      );
+      i >= this.optionsSlots.length ? (i = this.optionsSlots.length) : i++;
+      this.activeItem = this.optionsSlots[i];
     }
   }
 };
@@ -52,6 +136,10 @@ export default {
   display: block;
   height: 100%;
   position: relative;
+  border: 1px solid transparent;
+  &.show {
+    border-color: #eee;
+  }
   .field-select-block {
     height: 100%;
     input {
@@ -79,6 +167,7 @@ export default {
       line-height: @cell-height;
       box-sizing: border-box;
       padding: 0 8px;
+      &.active,
       &:hover {
         background-color: @DarkWhite;
       }

@@ -75,3 +75,49 @@ ul {
   border: none;
   overflow: hidden;
 }
+
+.btn {
+  padding: 8px;
+  color: @TiffanyBlue;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 100;
+  font-size: 12px;
+}
+.table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  min-width: 100%;
+  font-size: 14px;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  thead {
+    tr {
+      background-color: @DarkWhite;
+    }
+  }
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+  height: @cell-height;
+  box-sizing: border-box;
+  padding: 0;
+  border-top: 1px solid #ddd;
+  vertical-align: middle;
+  border-left: 1px solid #ddd;
+  white-space: nowrap;
+}
+.table > thead > tr > td,
+.table > thead > tr > th {
+  padding: 0 8px;
+}
+.w50 {
+  width: 50px;
+}
+.w150 {
+  width: 150px;
+}

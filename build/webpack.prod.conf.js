@@ -7,6 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var webpackConfig = merge(baseWebpackConfig, {
     entry: {
+        'babel-polyfill': 'babel-polyfill',
         'vue-editable': './src/index.js'
     },
     output: {

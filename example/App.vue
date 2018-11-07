@@ -2,18 +2,16 @@
   <div id="app">
     <h3 class="text-center">vue-editable</h3>
     <!-- 可编辑表格 -->
-    <div>
-      <k-editable :config="config"
-        :data-list="rows"
-        @add-row="addNewRow"
-        @del-row="delRow"></k-editable>
-    </div>
+    <k-editable :config="config"
+      :data-list="rows"
+      @add-row="addNewRow"
+      @del-row="delRow"></k-editable>
 
     <br>
 
     <!-- 积乘布局 -->
     <h3 class="text-center">积乘布局</h3>
-    <div class="table-block"
+    <!-- <div class="table-block"
       layout="row"
       layout-align="start stretch">
       <div flex
@@ -28,7 +26,7 @@
           {{row+1}}
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -37,7 +35,7 @@ import kEditable from '@';
 export default {
   name: 'app',
   components: {
-    kEditable
+    kEditable: kEditable
   },
   data() {
     return {
@@ -63,6 +61,45 @@ export default {
         list: {
           grade: '一年级|1,二年级|2,三年级|3,四年级|4,五年级|5,六年级|6',
           gender: '男|1,女|0'
+        },
+        table: {
+          No: {
+            fields: [
+              { name: 'id', label: 'ID', type: 'string' },
+              { name: 'name', label: '姓名', type: 'string' },
+              { name: 'age', label: '年龄', type: 'number' },
+              { name: 'gender', label: '性别', type: 'number' },
+              { name: 'grade', label: '年级', type: 'number' },
+              { name: 'hasPass', label: '是否通过', type: 'boolean' },
+              { name: 'No', label: '学号', type: 'number' }
+            ],
+            dataList: [
+              {
+                id: 4,
+                name: 'jczzq4',
+                age: 24,
+                gender: 1,
+                grade: 5,
+                No: 78
+              },
+              {
+                id: 2,
+                name: 'Evan You',
+                age: 38,
+                gender: 0,
+                grade: '2',
+                No: 64
+              },
+              {
+                id: 3,
+                name: '坂田银时',
+                age: 58,
+                gender: 1,
+                grade: 5,
+                No: 60
+              }
+            ]
+          }
         },
         query: {},
         primaryKey: 'No',
