@@ -19,7 +19,6 @@ module.exports = merge(baseWebpackConfig, {
     },
     resolve: {
         alias: {
-            example: resolve('example')
         }
     },
     module: {},

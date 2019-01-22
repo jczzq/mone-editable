@@ -144,6 +144,8 @@ export default {
       for (var key in newRow) {
         newRow[key] = '';
       }
+      // 模拟主键
+      newRow[this.config.primaryKey] = Date.now();
       this.rows.splice(rowIndex + 1, 0, newRow);
     },
     // 删除某行

@@ -3,7 +3,7 @@
     <div class="field-select-block"
       layout="row"
       layout-align="space-between stretch">
-      <input ref="selectInput" type="text" :value="activeItem.name" flex readonly @focus="handleFocus" @blur="show = false" @keyup="handleKeyup">
+      <input ref="selectInput" type="text" :value="activeItem.name" flex readonly @focus="handleFocus" @blur="handleBlur" @keyup="handleKeyup">
       <span class="label-icon"
         layout="row"
         @click="show = !show"
@@ -11,6 +11,7 @@
         <k-icon xlink="#icon-arrow-down"></k-icon>
       </span>
     </div>
+    <transition name="slide-up" mode="out-in">
     <ul class="field-select-box"
       v-show="show"
       :style="{ zIndex: $knife.getZIndex() }">
@@ -21,6 +22,7 @@
         :key="item.value || index">{{ item.name }}
       </li>
     </ul>
+    </transition>
   </div>
 </template>
 
@@ -123,6 +125,11 @@ export default {
       );
       i >= this.optionsSlots.length ? (i = this.optionsSlots.length) : i++;
       this.activeItem = this.optionsSlots[i];
+    },
+    handleBlur() {
+      setTimeout(() => {
+        this.show = false;
+      }, 300);
     }
   }
 };
@@ -137,6 +144,17 @@ export default {
   height: 100%;
   position: relative;
   border: 1px solid transparent;
+  // 上出上入
+  .slide-up-enter-active,
+  .slide-up-leave-active {
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .slide-up-enter,
+  .slide-up-leave-active {
+      transform: translateY(-10px);
+      opacity: 0;
+  }
   &.show {
     border-color: #eee;
   }

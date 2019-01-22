@@ -116,9 +116,5 @@ export default {
 </script>
 
 <style lang="less">
-@import '~@/assets/less/_theme.less';
-@import './_global.less';
-.knife-editable {
-
-}
+@import '~@/assets/less/_global.less';
 </style>

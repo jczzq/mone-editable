@@ -1,6 +1,8 @@
 <template>
-  <div class="field-box field-check-box">
-    <span @click="$emit('change', Number(!value))"
+  <div class="field-check-box"
+    :class="{ show: focus }">
+    <input class="hide-checkbox" @keyup="handleKeyup" @focus="focus = true" @blur="focus = false" type="checkbox" :value="value"/>
+    <span @click="checkedHandle"
       class="k-check-box"
       :class="{checked: value}">
       <k-icon v-if="value"
@@ -12,7 +14,30 @@
 <script>
 export default {
   name: 'k-check-box',
-  props: ['value']
+  props: ['value'],
+  data() {
+    return {
+      focus: false
+    };
+  },
+  methods: {
+    checkedHandle() {
+      this.$emit('change', !this.value);
+    },
+    handleKeyup(event) {
+      // altKey
+      // shiftKey
+      // console.log('event', event);
+      switch (event.keyCode) {
+        // enter
+        case 13:
+          this.checkedHandle();
+          break;
+        default:
+          break;
+      }
+    }
+  }
 };
 </script>
 
@@ -21,28 +46,37 @@ export default {
 .field-check-box {
   height: 35px;
   text-align: center;
-}
-span.k-check-box {
-  vertical-align: middle;
-  display: inline-block;
-  margin-top: 5px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  box-sizing: border-box;
-  color: transparent;
-  cursor: pointer;
-  border: 1px solid @ExtraLightSilver;
-  border-radius: 3px;
-  &.checked {
-    border: 1px solid @TiffanyBlue;
-    background-color: @TiffanyBlue;
-    color: white;
+  &.show {
+    border-color: red;
   }
-  .icon {
-    color: white;
+  .hide-checkbox {
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 0;
+  }
+  span.k-check-box {
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: 5px;
     width: 25px;
     height: 25px;
+    text-align: center;
+    box-sizing: border-box;
+    color: transparent;
+    cursor: pointer;
+    border: 1px solid @ExtraLightSilver;
+    border-radius: 3px;
+    &.checked {
+      border: 1px solid @TiffanyBlue;
+      background-color: @TiffanyBlue;
+      color: white;
+    }
+    .icon {
+      color: white;
+      width: 25px;
+      height: 25px;
+    }
   }
 }
 </style>
