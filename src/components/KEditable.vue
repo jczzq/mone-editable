@@ -117,4 +117,43 @@ export default {
 
 <style lang="less">
 @import '~@/assets/less/_global.less';
+[layout="row"] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  word-break: break-all;
+}
+
+[layout="column"] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+[flex-wrap="wrap"] {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex(@a, @b) {
+    justify-content: @a;
+    -webkit-justify-content: @a;
+    align-items: @b;
+    -webkit-align-items: @b;
+}
+
+[layout-align="space-between stretch"] {
+    .flex(space-between, stretch)
+}
+[layout-align="center center"] {
+    .flex(center, center)
+}
+[flex] {
+    -webkit-flex: 1;
+    flex: 1;
+}
 </style>

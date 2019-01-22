@@ -7,27 +7,6 @@
       @add-row="addNewRow"
       @del-row="delRow"></k-editable>
 
-    <br>
-
-    <!-- 积乘布局 -->
-    <!-- <h3 class="text-center">积乘布局</h3>
-    <div class="table-block"
-      layout="row"
-      layout-align="start stretch">
-      <div flex
-        v-for="(col, colIndex) in cols"
-        :key="colIndex"
-        layout="column"
-        layout-align="space-between stretch">
-        <div flex
-          class="cell"
-          v-for="(cell, row) in cols.filter((x,i) => {return i <= colIndex;}).reduce((y, s) => { return y * s}, 1)"
-          :key="row">
-          {{row+1}}
-        </div>
-      </div>
-    </div> -->
-
   </div>
 </template>
 

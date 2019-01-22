@@ -1,16 +1,16 @@
-var path = require('path')
-var utils = require('./utils')
-var vueLoaderConfig = require('./vue-loader.conf')
+var path = require('path');
+var utils = require('./utils');
+var vueLoaderConfig = require('./vue-loader.conf');
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js',
       'vue-editable': resolve(''),
       '@': resolve('src')
     }
@@ -59,7 +59,19 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'less-loader'
+        ]
       }
     ]
   }
-}
+};
