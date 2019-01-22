@@ -25,6 +25,7 @@ module.exports = {
     "space-before-function-paren": [0, "always"],
     // 语句强制分号结尾
     "semi": [2, "always"],
+    "quotes": 0,
     // 必须使用全等
     "eqeqeq": "off"
   }

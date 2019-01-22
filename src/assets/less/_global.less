@@ -1,10 +1,19 @@
 @import './_theme.less';
 // 工程默认样式
-html,body,input,textarea,button,p,div,span,table,select {
-    font-family: "Microsoft YaHei","PingFangSC-Regular","Hiragino Sans GB","Helvetica Neue",Helvetica;
+html,
+body,
+input,
+textarea,
+button,
+p,
+div,
+span,
+table,
+select {
+    font-family: 'Microsoft YaHei', 'PingFangSC-Regular', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica;
     box-sizing: border-box;
     * {
-      box-sizing: border-box;
+        box-sizing: border-box;
     }
 }
 
@@ -19,105 +28,70 @@ textarea {
 }
 
 ul {
-  padding: 0;
+    padding: 0;
 }
 
 .knife-icon {
-  /* 通过设置 font-size 来改变图标大小 */
-  width: 1em;
-  height: 1em;
-  /* 图标和文字相邻时，垂直对齐 */
-  vertical-align: -0.15em;
-  /* 通过设置 color 来改变 SVG 的颜色/fill */
-  fill: currentColor;
-  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+    /* 通过设置 font-size 来改变图标大小 */
+    width: 1em;
+    height: 1em;
+    /* 图标和文字相邻时，垂直对齐 */
+    vertical-align: -0.15em;
+    /* 通过设置 color 来改变 SVG 的颜色/fill */
+    fill: currentColor;
+    /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
            normalize.css 中也包含这行 */
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .text-right {
-  text-align: right;
+    text-align: right;
 }
 
 .text-left {
-  text-align: left;
+    text-align: left;
 }
 
 .text-center {
-  text-align: center;
+    text-align: center;
 }
 
 .pull-right {
-  float: right;
+    float: right;
 }
 
 .pull-left {
-  float: left;
+    float: left;
 }
 
 /* --------- 1px 线条--------- */
+
 // 竖线
 .v-line {
-  display: inline-block;
-  width: 1px;
-  /*no*/
-  height: 100%;
-  background-color: #E4E4E4;
-  border: none;
-  overflow: hidden;
+    display: inline-block;
+    width: 1px;
+    /*no*/
+    height: 100%;
+    background-color: #e4e4e4;
+    border: none;
+    overflow: hidden;
 }
+
 // 横线
 .h-line {
-  display: block;
-  height: 1px;
-  /*no*/
-  background-color: #E4E4E4;
-  border: none;
-  overflow: hidden;
+    display: block;
+    height: 1px;
+    /*no*/
+    background-color: #e4e4e4;
+    border: none;
+    overflow: hidden;
 }
 
 .btn {
-  padding: 8px;
-  color: @TiffanyBlue;
-  cursor: pointer;
-  text-decoration: underline;
-  font-weight: 100;
-  font-size: 12px;
-}
-.table {
-  border-spacing: 0;
-  border-collapse: collapse;
-  min-width: 100%;
-  font-size: 14px;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  thead {
-    tr {
-      background-color: @DarkWhite;
-    }
-  }
-}
-.table > tbody > tr > td,
-.table > tbody > tr > th,
-.table > tfoot > tr > td,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > thead > tr > th {
-  height: @cell-height;
-  box-sizing: border-box;
-  padding: 0;
-  border-top: 1px solid #ddd;
-  vertical-align: middle;
-  border-left: 1px solid #ddd;
-  white-space: nowrap;
-}
-.table > thead > tr > td,
-.table > thead > tr > th {
-  padding: 0 8px;
-}
-.w50 {
-  width: 50px;
-}
-.w150 {
-  width: 150px;
+    padding: 8px;
+    color: @TiffanyBlue;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 100;
+    font-size: 12px;
 }
