@@ -3,11 +3,13 @@
 ![效果展示](assets/show.png)
 
 ## 功能
-vue-editable可编辑的表格，支持的表单类型有：
-- 输入框
-- 单选框
-- 下拉框
-- 搜索框
+`vue-editable`支持的表单类型有：
+- `KCheckBox` 单选框，类似于input type="radio"
+- `KNumber` 数字框，类似于input type="number"
+- `KSelect` 下拉框，类似于select
+- `KQuery` 搜索框，自定义表单类型，常用于异步关联查询
+- `KText` 文本框，类似于input type="text"
+
 简约的样式风格
 
 ## 使用
