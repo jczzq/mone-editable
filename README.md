@@ -21,7 +21,30 @@ or
 ``` bash
 npm i git@github.com:jczzq/vue-editable.git -D
 ```
-#### 引入组件
+#### 引入和使用
+`index.js`
+```
+import Vue from 'vue';
+import App from './App';
+
+// 查看build
+// import 'vue-editable/dist/vue-editable.css';
+// import KE from 'vue-editable';
+
+// or
+// 查看实时
+import KE from '@';
+
+Vue.use(KE);
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+
+```
+`App.vue`
 ```
 <template>
   <div id="app">
@@ -35,12 +58,8 @@ npm i git@github.com:jczzq/vue-editable.git -D
 </template>
 
 <script>
-import kEditable from 'vue-editable';
 export default {
   name: 'app',
-  components: {
-    kEditable: kEditable
-  },
   data() {
     return {
       cols: [2, 2, 2, 4, 1],
