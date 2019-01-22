@@ -10,8 +10,8 @@
     <br>
 
     <!-- 积乘布局 -->
-    <h3 class="text-center">积乘布局</h3>
-    <!-- <div class="table-block"
+    <!-- <h3 class="text-center">积乘布局</h3>
+    <div class="table-block"
       layout="row"
       layout-align="start stretch">
       <div flex
@@ -27,6 +27,7 @@
         </div>
       </div>
     </div> -->
+
   </div>
 </template>
 
