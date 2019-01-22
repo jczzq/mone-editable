@@ -1,6 +1,6 @@
 {
   "name": "vue-editable",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "基于vue的可编辑表格插件",
   "author": "jczzq <1195262383@qq.com>",
   "private": true,
