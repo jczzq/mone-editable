@@ -241,45 +241,5 @@ export default {
             return _adder;
         }
         return adder.apply(null, [].slice.call(arguments));
-    },
-    // base64加密函数,用于生成字符串对应的base64加密字符串
-    base64Encode(input) {
-        var rv;
-        rv = encodeURIComponent(input);
-        rv = unescape(rv);
-        rv = window.btoa(rv);
-        return rv;
-    },
-    // base64解密函数,用于解密base64加密的字符串
-    base64Decode(input) {
-        var rv;
-        rv = window.atob(input);
-        rv = escape(rv);
-        rv = decodeURIComponent(rv);
-        return rv;
-    },
-    // 格式化时间
-    formatDate(date, fmt) {
-        if (/(y+)/.test(fmt)) {
-            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
-        }
-        let o = {
-            'M+': date.getMonth() + 1,
-            'd+': date.getDate(),
-            'h+': date.getHours(),
-            'm+': date.getMinutes(),
-            's+': date.getSeconds()
-        }
-        for (let k in o) {
-            if (new RegExp(`(${k})`).test(fmt)) {
-                let str = o[k] + ''
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : this.padLeftZero(str))
-            }
-        }
-        return fmt
-    },
-    // 左填充 0
-    padLeftZero(str) {
-        return ('00' + str).substr(str.length);
     }
 }

@@ -6,16 +6,23 @@ var baseWebpackConfig = require('./webpack.base.conf');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var webpackConfig = merge(baseWebpackConfig, {
-    entry: {
-        'babel-polyfill': 'babel-polyfill',
-        'vue-editable': './src/index.js'
-    },
+    entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, '../lib'),
-        filename: '[name].js'
+        path: path.resolve(__dirname, '../dist'),
+        filename: 'vue-editable.js',
+        library: 'vueEditable',
+        libraryTarget: 'umd',
     },
     resolve: {
         alias: {}
+    },
+    externals: {
+      vue: {
+        root: 'Vue',
+        commonjs: 'vue',
+        commonjs2: 'vue',
+        amd: 'vue'
+      }
     },
     module: {
         rules: utils.styleLoaders({

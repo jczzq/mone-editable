@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <h3 class="text-center">vue-editable</h3>
     <!-- 可编辑表格 -->
     <k-editable :config="config"
@@ -32,12 +32,8 @@
 </template>
 
 <script>
-import kEditable from '@';
 export default {
   name: 'app',
-  components: {
-    kEditable: kEditable
-  },
   data() {
     return {
       cols: [2, 2, 2, 4, 1],

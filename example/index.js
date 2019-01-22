@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import App from './App';
 
+import KE from '@';
+Vue.use(KE);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  template: '<App/>',
-  components: { App }
+  render: h => h(App)
 });
