@@ -27,14 +27,8 @@ npm i git@github.com:jczzq/vue-editable.git -D
 import Vue from 'vue';
 import App from './App';
 
-// 查看build
-// import 'vue-editable/dist/vue-editable.css';
-// import KE from 'vue-editable';
-
-// or
-// 查看实时
-import KE from '@';
-
+import 'vue-editable/dist/vue-editable.css';
+import KE from 'vue-editable';
 Vue.use(KE);
 
 /* eslint-disable no-new */
@@ -224,5 +218,3 @@ npm run build --report
 
 ## 贡献人员
 [jczzq](https://github.com/jczzq)
-
-## 参考
