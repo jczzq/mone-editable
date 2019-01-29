@@ -12,12 +12,12 @@
         <k-icon xlink="#icon-search"></k-icon>
       </span>
     </div>
-    <div class="select-box"
+    <div class="sl-bx"
       :style="{ zIndex: $knife.getZIndex() }"
       @mouseenter="$refs.contentInput.onblur = null"
       @mouseleave="$refs.contentInput.onblur = hidePanel"
       v-show="show">
-      <table class="select-box-table table">
+      <table class="sl-bx-table k_e_t">
         <thead>
           <tr>
             <td v-for="(cell, i) in fields"
@@ -104,7 +104,7 @@ export default {
       padding: 0 8px;
     }
   }
-  .select-box {
+  .sl-bx {
     position: absolute;
     left: 0;
     background-color: white;
@@ -114,7 +114,7 @@ export default {
     margin: 0;
     border: 1px solid @ExtraLightGray;
     box-shadow: 0 10px 15px 1px #eee;
-    .select-box-table {
+    .sl-bx-table {
       tr {
         cursor: pointer;
         td,
