@@ -7,7 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var webpackConfig = merge(baseWebpackConfig, {
   entry: {
-    'vue-editable': './src/index.js'
+    'mone-editable': './src/index.js'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),

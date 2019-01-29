@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h3 class="text-center">vue-editable</h3>
+    <h3 class="text-center">mone-editable</h3>
     <!-- 可编辑表格 -->
     <k-editable :config="config"
       :data-list="rows"

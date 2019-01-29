@@ -1,9 +1,8 @@
 {
-  "name": "vue-editable",
+  "name": "mone-editable",
   "version": "0.2.0",
   "description": "基于vue的可编辑表格插件",
   "author": "jczzq <1195262383@qq.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
@@ -13,7 +12,7 @@
     "report": "npm run build --report",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
-  "main": "dist/vue-editable.js",
+  "main": "dist/mone-editable.js",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "vue": "^2.3.3"
@@ -88,6 +87,10 @@
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jczzq/mone-editable.git"
+  },
   "peerDependencies": {
     "vue": "^2.3.3"
   },
@@ -99,5 +102,19 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/jczzq/mone-editable/issues"
+  },
+  "homepage": "https://github.com/jczzq/mone-editable#readme",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "keywords": [
+    "mone-editable",
+    "vue",
+    "editabletable"
+  ],
+  "license": "ISC"
 }

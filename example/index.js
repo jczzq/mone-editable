@@ -2,8 +2,8 @@ import Vue from 'vue';
 import App from './App';
 
 // 查看build
-// import 'vue-editable/dist/vue-editable.css';
-// import KE from 'vue-editable';
+// import 'mone-editable/dist/mone-editable.css';
+// import KE from 'mone-editable';
 
 // or
 // 查看实时

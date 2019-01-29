@@ -1,9 +1,9 @@
-# vue-editable
+# mone-editable
 基于vue的可编辑表格插件
 ![效果展示](assets/show.png)
 
 ## 功能
-`vue-editable`支持的表单类型有：
+`mone-editable`支持的表单类型有：
 - `KCheckBox` 单选框，类似于input type="radio"
 - `KNumber` 数字框，类似于input type="number"
 - `KSelect` 下拉框，类似于select
@@ -13,13 +13,9 @@
 简约的样式风格
 
 ## 使用
-#### 从github安装组件
+#### 安装组件
 ``` bash
-npm i https://github.com/jczzq/vue-editable -D
-```
-or
-``` bash
-npm i git@github.com:jczzq/vue-editable.git -D
+npm i mone-editable -S
 ```
 #### 引入和使用
 `index.js`
@@ -27,8 +23,8 @@ npm i git@github.com:jczzq/vue-editable.git -D
 import Vue from 'vue';
 import App from './App';
 
-import 'vue-editable/dist/vue-editable.css';
-import KE from 'vue-editable';
+import 'mone-editable/dist/mone-editable.css';
+import KE from 'mone-editable';
 Vue.use(KE);
 
 /* eslint-disable no-new */
@@ -42,7 +38,7 @@ new Vue({
 ```
 <template>
   <div id="app">
-    <h3 class="text-center">vue-editable</h3>
+    <h3 class="text-center">mone-editable</h3>
     <!-- 可编辑表格 -->
     <k-editable :config="config"
       :data-list="rows"
