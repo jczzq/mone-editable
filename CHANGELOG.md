@@ -6,7 +6,7 @@
   - `KSelect` 下拉框，类似于 select
   - `KQuery` 搜索框，自定义表单类型，常用于异步关联查询
   - `KText` 文本框，类似于 input type="text"
-- 数据驱动，根据规则配置出一个简易的Excel
+- 完全由数据驱动
 
 # 0.2.0
 ### Feature

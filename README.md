@@ -4,16 +4,16 @@
 ![效果展示](assets/show.png)
 
 ## 特性
-### 可编辑的单元格包括
+#### 可编辑的单元格包括
   - `KCheckBox` 单选框，类似于 input type="radio"
   - `KNumber` 数字框，类似于 input type="number"
   - `KSelect` 下拉框，类似于 select
   - `KQuery` 搜索框，自定义表单类型，常用于异步关联查询
   - `KText` 文本框，类似于 input type="text"
-### 数据驱动
+#### 数据驱动
 根据规则可以快速配置出一个简易的Excel。
 
-### 简约的样式风格
+#### 简约的样式风格
 
 ## 使用
 
